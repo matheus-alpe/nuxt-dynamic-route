@@ -3,6 +3,11 @@ const route = useRoute();
 </script>
 
 <template>
+  <nav>
+    <NuxtLink to="/">Home</NuxtLink>
+    <NuxtLink to="/about">About</NuxtLink>
+  </nav>
+
   <slot />
 
   <ClientOnly>
@@ -18,6 +23,33 @@ const route = useRoute();
 </template>
 
 <style>
+nav {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: max-content;
+  gap: .5rem;
+
+  a {
+    width: fit-content;
+    padding: .5rem;
+    border-radius: 5px;
+    color: #000;
+    background: rgba(3, 3, 3, .3);
+    font-weight: bold;
+    text-decoration: none;
+
+    &.router-link-active {
+      background: rgba(3, 3, 3, .5);
+      color:#fcfcfc;
+    }
+
+    &.router-link-exact-active {
+      background: rgba(3, 3, 3, .7);
+      text-decoration: underline;
+    }
+  }
+}
+
 .code {
   background: rgba(3, 3, 3, .1);
   padding: 10px;
